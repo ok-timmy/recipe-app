@@ -7,7 +7,7 @@ function Home() {
     // style={{background: "url('https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",  height: '100vh'}}>
     //   Welcome to A World Where You never go hungry again
     // </div>
-    <div className=" text-center"  style={{height: "100vh"}}>
+    <div className=" text-center"  style={{height: "auto"}}>
     <div
       id="carouselExampleIndicators"
       className="carousel slide"
