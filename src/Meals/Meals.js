@@ -3,12 +3,12 @@ import Meal from "./Meal";
 
 function Meals({ meals}) {
   return (
-    <div className="mt-3">
-      <div class="container">
-        <div class="row">
+    <div className="mt-3 mx-sm-auto">
+      <div className="container mx-auto">
+        <div className="row">
           {meals.map((meal) => {
             return (
-              <div key={meal.idMeal} class="col-sm mb-3">
+              <div key={meal.idMeal} className="col-sm mb-3">
                 <Meal meal={meal} />
               </div>
             );

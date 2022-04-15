@@ -6,13 +6,13 @@ function Meal({ meal }) {
   
   return (
     <div>
-      <div class="card" style={{ width: "18rem" }}>
-        <img src={meal.strMealThumb} class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">{meal.strMeal}</h5>
+      <div className="card shadow p-1 mb-5 bg-white rounded" style={{ width: "18rem" }}>
+        <img src={meal.strMealThumb} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">{meal.strMeal}</h5>
           <Link to={{pathname: `/${meal.strMeal}`}} >
             <button
-              class="btn btn-primary"
+              className="btn btn-primary"
             >
               See More
             </button>
