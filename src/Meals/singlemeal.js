@@ -5,13 +5,14 @@ import Meal from "./Meal";
 
 function Singlemeal() {
   const [foundMeal, setFoundMeal] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
   const [mealName, setmealName] = useState();
 
-  console.log(foundMeal);
+  // console.log(foundMeal);
   const location = useLocation();
-
+  
   useEffect(() => {
-    let path = window.location.pathname;
+    let path = location.pathname;
     const mainPath = path.split("/");
     const mealname = mainPath[mainPath.length - 1];
     setmealName(mealname);
@@ -23,17 +24,20 @@ function Singlemeal() {
       try {
         const meal = await axios.get(APIURL);
         const mealdata = meal.data.meals;
+        // console.log(mealdata)
         setFoundMeal(mealdata);
+        setIsLoading(false)
       } catch (error) {
         setFoundMeal([]);
+        setIsLoading(false)
       }
     };
     fetchSingleMeal();
   }, [mealName]);
 
-  if (foundMeal && foundMeal.length === 1) {
+ if (isLoading) {return <div>Loading...</div>} else { if (foundMeal && foundMeal.length === 1) {
     const singleMeal = foundMeal[0];
-    console.log(singleMeal);
+    // console.log(singleMeal);
     return (
       <div>
         <div className="col-lg-6 mx-lg-auto mx-sm-3 pb-3">
@@ -113,6 +117,6 @@ function Singlemeal() {
     );
 
   } else return <div> We could not get your search Input</div>;
-}
+}}
 
 export default Singlemeal;
